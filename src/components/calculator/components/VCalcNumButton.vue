@@ -2,6 +2,7 @@
   <div class="v-num-button">
     <button
         type="button"
+        :disabled="disabled"
         @click="()=> $emit('onClick', number)"
     >
       {{ number }}
@@ -31,7 +32,9 @@ $numBtnTextColor: #cbcbcb;
 .v-num-button {
   box-sizing: border-box;
   position: relative;
-  display: block;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   width: 0;
   height: 0;
   padding-top: 33.33%;
@@ -50,9 +53,12 @@ $numBtnTextColor: #cbcbcb;
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   display: flex;
-  width: 95%;
-  height: 95%;
+  width: 85%;
+  height: 85%;
   align-items: center;
   justify-content: center;
   font-size: 24px;

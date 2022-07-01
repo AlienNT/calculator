@@ -1,0 +1,15 @@
+* {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+#app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(63, 66, 96, 0.34);
+}

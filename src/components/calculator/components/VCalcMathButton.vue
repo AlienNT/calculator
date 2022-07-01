@@ -29,13 +29,16 @@ $mathButtonBGColor: orange;
 $mathButtonTextColor: white;
 .v-math-button {
   flex: 1 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 95%;
-    height: 95%;
+    width: 85%;
+    height: 85%;
     margin: auto;
     font-size: 24px;
     border-radius: 150px;

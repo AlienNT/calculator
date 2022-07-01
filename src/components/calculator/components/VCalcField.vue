@@ -1,15 +1,22 @@
 <template>
-<div class="v-calc-field">
-  <div class="history">
-    <div v-for="item in history" :key="item?.result">
-      <div class="string">{{item?.string}}</div>
-      <div class="result">{{item?.result}}</div>
+  <div class="v-calc-field">
+    <div class="history">
+      <div v-for="item in history" :key="item?.result">
+        <div class="string">{{ item?.string }}</div>
+        <div class="result">{{ item?.result }}</div>
+      </div>
+    </div>
+    <div
+        class="math-string"
+        ref="mathContainer"
+    >
+      <div
+          ref="mathString"
+      >
+        {{ _shortStr(mathString, 15) || 0 }}
+      </div>
     </div>
   </div>
-  <div class="math-string">
-    <div>{{mathString || 0}}</div>
-  </div>
-</div>
 </template>
 
 <script>
@@ -27,8 +34,13 @@ export default {
     history: {
       type: Object,
       default: null,
-    }
-  }
+    },
+  },
+  methods: {
+    _shortStr(string, maxLength) {
+      return maxLength ? string.slice(0, maxLength) : string;
+    },
+  },
 }
 </script>
 
@@ -41,17 +53,25 @@ $fieldTextColor: #2c2c2c;
   flex-direction: column;
   justify-content: space-between;
   padding: 10px 15px;
+
   .math-string {
     text-align: right;
-    font-size: 48px;
+    font-size: 36px;
     font-weight: bold;
     color: $fieldTextColor;
-    word-break: break-all;
+    overflow: hidden;
+
+    > * {
+      margin-left: auto;
+      width: fit-content;
+    }
   }
+
   .history {
     text-align: right;
     font-size: 12px;
     color: lighten($fieldTextColor, 30%);
+
     .result {
       font-weight: bold;
       color: lighten($fieldTextColor, 20%);

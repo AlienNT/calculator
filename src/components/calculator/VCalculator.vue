@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       config: {
-        maxLength: 15,
+        maxLength: null,
         historyLength: 2,
         numButtons: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.'],
         mathButtons: ['+', '-', '*', '/', 'sqrt', '**', '=', 'C'],
@@ -64,7 +64,12 @@ export default {
   },
   computed: {
     numDisabled() {
-      return this.mathString?.length >= this.config.maxLength || false;
+      // eslint-disable-next-line no-unused-vars
+      const rules = {
+        maxLength: () => this.config.maxLength ? this.mathString?.length >= this.config.maxLength : false,
+        ifLastSymbolNotMath: () => this.mathString?.length ? this._last(this.mathString) === ')' : false
+      }
+      return rules.maxLength() || rules.ifLastSymbolNotMath();
     },
     mathDisabled() {
       return this.mathString?.length <= 0;
@@ -73,7 +78,8 @@ export default {
   methods: {
     addSymbolToString(symbol) {
       const str = this.mathString?.toString();
-      const isLastSymbolAtNumber = str.length && isFinite(this._last(str));
+      const lastSymbol = this._last(str);
+      const isLastSymbolAtNumber = str.length && isFinite(lastSymbol);
       this.showResult = false;
 
       switch (symbol.toString()) {
@@ -87,13 +93,15 @@ export default {
           return this.stringToSqrt();
 
         default:
-          if ((isLastSymbolAtNumber || isFinite(symbol))) {
+          if ((isLastSymbolAtNumber || isFinite(symbol)) || lastSymbol === ')') {
             this.mathString += symbol.toString();
+          } else {
+            this.mathString = this._setLast(this.mathString, symbol)
           }
       }
     },
     getResult() {
-      if (!isFinite(this._last(this.mathString))) {
+      if (!isFinite(this._last(this.mathString)) && this._last(this.mathString) !== ')') {
         this.mathString = this.mathString.slice(0, -1)
       }
 
@@ -118,6 +126,9 @@ export default {
       this.mathString = this.result === 0 ? '' : this.result.toString();
     },
     stringToSqrt() {
+      if (this._last(this.mathString) === ')') {
+        return;
+      }
       const str = []
 
       for (let index = this._lastIndex(this.mathString); index >= 0; index--) {
@@ -154,13 +165,16 @@ export default {
     _reverse(string) {
       return string?.split('').reverse().join('');
     },
+    _setLast(string, symbol) {
+      return string.slice(0, -1) + symbol;
+    },
   },
   watch: {
     showResult(e) {
       if (e) {
         this.setResults()
       }
-    }
+    },
   },
 }
 </script>
@@ -173,7 +187,8 @@ export default {
 
 .v-calculator {
   min-height: 500px;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   margin: auto;
   box-shadow: 0 0 8px 0 #696767;
   border-radius: 40px;
@@ -182,7 +197,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 8px;
+  gap: 15px;
 }
 
 .v-calculator__top {
