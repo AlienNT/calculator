@@ -64,7 +64,6 @@ export default {
   },
   computed: {
     numDisabled() {
-      // eslint-disable-next-line no-unused-vars
       const rules = {
         maxLength: () => this.config.maxLength ? this.mathString?.length >= this.config.maxLength : false,
         ifLastSymbolNotMath: () => this.mathString?.length ? this._last(this.mathString) === ')' : false
