@@ -14,7 +14,7 @@ npm run build
 
 git init
 git add -A
-git commit -m "$(date '+%Y-%m-%d %H:%M:%S')"
+git commit -m "new build $(date '+%d-%m-%y %H:%M:%S')"
 
 git status
 
@@ -23,10 +23,11 @@ git status
 
 # если вы публикуете по адресу https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+git push origin master
+git subtree push --prefix dist origin gh-pages
 
-
-git push -f git@github.com:AlienNT/calculator.git master
-git subtree push --prefix dist git@github.com:AlienNT/calculator.git master:gh-pages
+#git push -f git@github.com:AlienNT/calculator.git master
+#git subtree push --prefix dist git@github.com:AlienNT/calculator.git master:gh-pages
 
 
 #cd -
