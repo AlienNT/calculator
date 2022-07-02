@@ -11,7 +11,7 @@ export default {
     VMain,
   },
   mounted() {
-    console.log('Vue Project')
+    console.log('Vue Project Run')
   }
 }
 </script>
