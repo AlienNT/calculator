@@ -13,7 +13,7 @@
       <div
           ref="mathString"
       >
-        {{ _shortStr(mathString, 15) || 0 }}
+        {{ _shortStr(mathString, 16) || 0 }}
       </div>
     </div>
   </div>
