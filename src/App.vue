@@ -9,6 +9,9 @@ export default {
   name: 'App',
   components: {
     VMain,
+  },
+  mounted() {
+    console.log('Vue Project')
   }
 }
 </script>
