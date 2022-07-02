@@ -12,9 +12,9 @@ npm run build
 # если вы публикуете на пользовательский домен
 # echo 'www.example.com' > CNAME
 
-#git init
+git init
 git add -A
-git commit -m 'deploy'
+git commit -m "$(date '+%Y-%m-%d %H:%M:%S')"
 
 git status
 
@@ -25,8 +25,8 @@ git status
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
 
-#git push -f git@github.com:AlienNT/calculator.git master
-#git subtree push --prefix dist git@github.com:AlienNT/calculator.git master:gh-pages
+git push -f git@github.com:AlienNT/calculator.git master
+git subtree push --prefix dist git@github.com:AlienNT/calculator.git master:gh-pages
 
 
 #cd -
