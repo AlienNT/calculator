@@ -6,7 +6,7 @@
 git merge dev
 git status
 git add -A
-#git commit -m "merge dev $(date '+%d-%m-%y %H:%M:%S')"
+git commit -m "merge dev $(date '+%d-%m-%y %H:%M:%S')"
 git push origin master
 
 
