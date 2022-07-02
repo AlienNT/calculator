@@ -16,7 +16,7 @@ git add -A
 git commit -m "new build $(date '+%d-%m-%y %H:%M:%S')"
 git push origin master
 
-git subtree push --prefix dist origin -f prod
+git subtree rebase --prefix dist origin prod
 #git checkout dev
 
 $SHELL
