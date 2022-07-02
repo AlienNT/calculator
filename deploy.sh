@@ -3,6 +3,7 @@
 # остановить публикацию при ошибках
 
 # сборка
+git checkout master
 git merge dev
 git status
 git add -A
@@ -18,7 +19,7 @@ git push origin master
 
 git subtree pull --prefix dist origin prod
 git subtree push --prefix dist origin prod
-#git checkout dev
+git checkout dev
 
 $SHELL
 
