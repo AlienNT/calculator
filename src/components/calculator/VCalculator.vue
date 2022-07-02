@@ -178,7 +178,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 * {
   font-weight: bold;
   font-family: monospace;
@@ -189,7 +189,7 @@ export default {
   max-width: 400px;
   width: 100%;
   margin: auto;
-  box-shadow: 0 0 8px 0 #696767;
+  box-shadow: 0 0 8px 0 $defaultBoxShadow;
   border-radius: 40px;
   padding: 15px;
   background: #383838;
@@ -204,7 +204,7 @@ export default {
   flex: 1 1 100%;
   height: 100%;
   width: 100%;
-  background: #ddd;
+  background: $defaultLightColor;
   border-radius: 30px;
 }
 

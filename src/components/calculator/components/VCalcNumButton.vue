@@ -27,8 +27,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$numBtnBgColor: #5e5e5e;
-$numBtnTextColor: #cbcbcb;
 .v-num-button {
   box-sizing: border-box;
   position: relative;

@@ -23,10 +23,7 @@ export default {
   },
 }
 </script>
-
 <style scoped lang="scss">
-$mathButtonBGColor: orange;
-$mathButtonTextColor: white;
 .v-math-button {
   flex: 1 1 50%;
   display: flex;

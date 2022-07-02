@@ -45,7 +45,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$fieldTextColor: #2c2c2c;
 .v-calc-field {
   width: 100%;
   flex: 1 1 100%;
