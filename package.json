@@ -6,7 +6,7 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "deploy": "npm run build && git add -A && git commit -m \"new build $(date)\" && git push origin master && git subtree push --prefix dist origin prod"
+        "deploy": "npm run build && git add -A && $message = 'new build ' + $(date) && git commit -m $message && git push origin master && git subtree push --prefix dist origin prod"
     },
     "dependencies": {
         "core-js": "^3.8.3",
