@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     _shortStr(string, maxLength) {
-
       return maxLength ? string.slice(0, maxLength) : string;
     },
   },
