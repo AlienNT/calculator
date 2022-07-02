@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 # остановить публикацию при ошибках
-set -e
 
 # сборка
 git checkout master
@@ -16,5 +15,7 @@ git push origin master
 git subtree push --prefix dist origin prod
 
 git checkout dev
+
+$SHELL
 
 
