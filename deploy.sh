@@ -4,17 +4,30 @@
 
 # сборка
 git checkout master
+
+$ echo "--------------------------------------------"
 git merge dev
+
+$ echo "--------------------------------------------"
 git status
-#npm run build
-#
-#git add -A
-#git commit -m "new build $(date '+%d-%m-%y %H:%M:%S')"
-#
-#git push origin master
-#git subtree push --prefix dist origin prod
-#
-#git checkout dev
+
+$ echo "--------------------------------------------"
+npm run build
+
+$ echo "--------------------------------------------"
+git add -A
+
+$ echo "--------------------------------------------"
+git commit -m "new build $(date '+%d-%m-%y %H:%M:%S')"
+
+$ echo "--------------------------------------------"
+git push origin master
+
+$ echo "--------------------------------------------"
+git subtree push --prefix dist origin prod
+
+$ echo "--------------------------------------------"
+git checkout dev
 
 $SHELL
 
