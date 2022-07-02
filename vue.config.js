@@ -5,9 +5,9 @@ module.exports = defineConfig({
   publicPath: process.env.NODE_ENV === 'production' ? '/calculator/' : '/',
   css: {
     loaderOptions: {
-      sass: {
-        data: `@import "@/assets/css/variables.scss";`
-      }
+      scss: {
+        additionalData: `@import "~@/assets/css/variables.scss";`
+      },
     }
   }
 
